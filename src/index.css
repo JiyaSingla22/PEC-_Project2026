@@ -1,0 +1,312 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* =========================================================================
+     MIDNIGHT NOIR EDITION (Default Dark Mode)
+     Deep obsidian slate ink, razor-sharp ivory typography, warm brass gold
+     ========================================================================= */
+  :root,
+  [data-theme="dark"],
+  html.dark,
+  body.dark {
+    --bg-base: #070b12;
+    --bg-surface: #0e1523;
+    --bg-surface-solid: #0b111e;
+    --bg-elevated: #162032;
+    --bg-input: #0a0f1a;
+    --border-color: #202d42;
+    --border-subtle: #172233;
+    --border-newspaper: #334460;
+    --text-heading: #ffffff;
+    --text-body: #d1d9e6;
+    --text-muted: #8696ab;
+    --accent-gold: #e2cba8;
+    --accent-gold-hover: #d8b988;
+    --accent-gold-subtle: rgba(226, 203, 168, 0.15);
+    --accent-audio: #a3c9a8;
+    --accent-audio-subtle: rgba(163, 201, 168, 0.15);
+    --accent-sage: #a3c9a8;
+    --accent-sage-hover: #8fb895;
+    --accent-sage-subtle: rgba(163, 201, 168, 0.15);
+    --reader-bg: #070b12;
+    --reader-card: #0e1523;
+    --scrollbar-track: #070b12;
+    --scrollbar-thumb: #1e2c40;
+    --scrollbar-thumb-hover: #2e415e;
+
+    /* Legacy mapping fallback */
+    --color-bg: #070b12;
+    --color-surface: #0e1523;
+    --color-border: #202d42;
+    --color-text-main: #ffffff;
+    --color-text-muted: #8696ab;
+    --color-accent: #e2cba8;
+  }
+
+  /* =========================================================================
+     MORNING BROADSHEET EDITION (Light Newspaper Print)
+     Authentic eggshell newsprint paper, deep printer's ink, classic rules
+     ========================================================================= */
+  [data-theme="light"],
+  html.theme-editorial,
+  html.light,
+  body.theme-editorial,
+  body.light {
+    --bg-base: #f8f6f0;
+    --bg-surface: #ffffff;
+    --bg-surface-solid: #ffffff;
+    --bg-elevated: #efeae0;
+    --bg-input: #ffffff;
+    --border-color: #dcd4c4;
+    --border-subtle: #eae3d5;
+    --border-newspaper: #1c1917;
+    --text-heading: #0f172a;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --accent-gold: #b45309;
+    --accent-gold-hover: #92400e;
+    --accent-gold-subtle: rgba(180, 83, 9, 0.12);
+    --accent-audio: #047857;
+    --accent-audio-subtle: rgba(4, 120, 87, 0.12);
+    --reader-bg: #f8f6f0;
+    --reader-card: #ffffff;
+    --scrollbar-track: #f8f6f0;
+    --scrollbar-thumb: #d3c7b2;
+    --scrollbar-thumb-hover: #b5a790;
+
+    /* Legacy mapping fallback */
+    --color-bg: #f8f6f0;
+    --color-surface: #ffffff;
+    --color-border: #dcd4c4;
+    --color-text-main: #0f172a;
+    --color-text-muted: #64748b;
+    --color-accent: #b45309;
+  }
+
+  /* =========================================================================
+     VINTAGE GAZETTE EDITION (Warm Sepia Parchment)
+     Warm antique library tones, rich espresso and chestnut ink
+     ========================================================================= */
+  [data-theme="sepia"],
+  html.theme-sepia,
+  html.sepia,
+  body.theme-sepia,
+  body.sepia {
+    --bg-base: #f3ecd6;
+    --bg-surface: #faf3e2;
+    --bg-surface-solid: #faf3e2;
+    --bg-elevated: #e6dac0;
+    --bg-input: #fdf8eb;
+    --border-color: #cebfa1;
+    --border-subtle: #ded1b8;
+    --border-newspaper: #382517;
+    --text-heading: #22160d;
+    --text-body: #423020;
+    --text-muted: #6f5945;
+    --accent-gold: #9a4e12;
+    --accent-gold-hover: #7c3a0b;
+    --accent-gold-subtle: rgba(154, 78, 18, 0.15);
+    --accent-audio: #166534;
+    --accent-audio-subtle: rgba(22, 101, 52, 0.15);
+    --reader-bg: #f3ecd6;
+    --reader-card: #faf3e2;
+    --scrollbar-track: #f3ecd6;
+    --scrollbar-thumb: #c7b695;
+    --scrollbar-thumb-hover: #a89572;
+
+    /* Legacy mapping fallback */
+    --color-bg: #f3ecd6;
+    --color-surface: #faf3e2;
+    --color-border: #cebfa1;
+    --color-text-main: #22160d;
+    --color-text-muted: #6f5945;
+    --color-accent: #9a4e12;
+  }
+
+  html,
+  body {
+    background-color: var(--bg-base) !important;
+    color: var(--text-body) !important;
+    font-feature-settings: "rlig" 1, "calt" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+  }
+}
+
+/* =========================================================================
+   100% SOLID & FULLY OPAQUE PANELS (Eliminates ALL transparency bleeding)
+   Cards and buttons underneath will NEVER show through!
+   ========================================================================= */
+.solid-audio-console {
+  background-color: var(--bg-surface-solid, #0b111e) !important;
+  color: var(--text-heading, #ffffff) !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(245, 158, 11, 0.3) !important;
+}
+
+[data-theme="light"] .solid-audio-console,
+html.theme-editorial .solid-audio-console,
+html.light .solid-audio-console,
+body.theme-editorial .solid-audio-console,
+body.light .solid-audio-console {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(180, 83, 9, 0.35) !important;
+}
+
+[data-theme="sepia"] .solid-audio-console,
+html.theme-sepia .solid-audio-console,
+html.sepia .solid-audio-console,
+body.theme-sepia .solid-audio-console,
+body.sepia .solid-audio-console {
+  background-color: #faf3e2 !important;
+  color: #22160d !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 20px 50px rgba(34, 22, 13, 0.25), 0 0 0 1px rgba(154, 78, 18, 0.4) !important;
+}
+
+/* Navbar 100% Solid Background */
+.solid-navbar {
+  background-color: #0b111e !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+[data-theme="light"] .solid-navbar,
+html.theme-editorial .solid-navbar,
+html.light .solid-navbar,
+body.theme-editorial .solid-navbar,
+body.light .solid-navbar {
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+[data-theme="sepia"] .solid-navbar,
+html.theme-sepia .solid-navbar,
+html.sepia .solid-navbar,
+body.theme-sepia .solid-navbar,
+body.sepia .solid-navbar {
+  background-color: #faf3e2 !important;
+  opacity: 1 !important;
+}
+
+/* Popover & Dropdown Solid Panels */
+.solid-dropdown-panel {
+  background-color: #0e1626 !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75) !important;
+}
+
+[data-theme="light"] .solid-dropdown-panel,
+html.theme-editorial .solid-dropdown-panel,
+html.light .solid-dropdown-panel,
+body.theme-editorial .solid-dropdown-panel,
+body.light .solid-dropdown-panel {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="sepia"] .solid-dropdown-panel,
+html.theme-sepia .solid-dropdown-panel,
+html.sepia .solid-dropdown-panel,
+body.theme-sepia .solid-dropdown-panel,
+body.sepia .solid-dropdown-panel {
+  background-color: #faf3e2 !important;
+  color: #22160d !important;
+  box-shadow: 0 16px 40px rgba(34, 22, 13, 0.25) !important;
+}
+
+/* =========================================================================
+   AUTHENTIC NEWSPAPER EDITORIAL TYPOGRAPHY & BROADSHEET FORMAT
+   ========================================================================= */
+.font-masthead {
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.font-editorial {
+  font-family: 'Playfair Display', 'Newsreader', Georgia, serif;
+}
+
+.font-serif {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+}
+
+/* Classic Newspaper Rules */
+.newspaper-double-rule {
+  border-top: 3px double var(--border-newspaper);
+  border-bottom: 1px solid var(--border-newspaper);
+}
+
+.newspaper-rule {
+  border-color: var(--border-newspaper);
+}
+
+.newspaper-hairline {
+  border-top: 1px solid var(--border-color);
+}
+
+/* Authentic Newspaper First-Letter Drop Cap */
+.newspaper-drop-cap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.82;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  font-weight: 800;
+  color: var(--accent-gold);
+}
+
+/* =========================================================================
+   CUSTOM SCROLLBAR
+   ========================================================================= */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* End of stylesheet */
