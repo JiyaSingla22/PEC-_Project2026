@@ -27,7 +27,7 @@ export default async function handler(req: any, res: any) {
     const upstreamResponse = await fetch(urlParam, {
       signal: controller.signal,
       headers: {
-        'User-Agent': 'Feedora-RSS-Reader/1.0 (Privacy-First Offline Reader; +https://github.com/feedora/reader)',
+        'User-Agent': 'IncogniRead-RSS-Reader/1.0 (Privacy-First Offline Reader; +https://github.com/PECathon-2026/Team-PF-F4SKBW)',
         'Accept': 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*',
       },
     });
@@ -53,7 +53,7 @@ export default async function handler(req: any, res: any) {
     res.setHeader('Content-Type', contentType);
     res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate=600');
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('X-Feedora-Proxy', 'SSRF-Protected');
+    res.setHeader('X-IncogniRead-Proxy', 'SSRF-Protected');
     res.status(200).send(textData);
   } catch (err: any) {
     if (err.name === 'AbortError') {
